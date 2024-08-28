@@ -3,7 +3,7 @@
 ---------------------------------------------------------------------------------------------------------------------------
 ## General Background for Black Scholes
 
-In finance, we have **unsystematic** and **systematic** risk. Unsystematic risk involves risk from the fluctuations in price of a held asset (asset prices _will_ oscillate due to changes in supply and demand.  Systematic risk involves risk from external factors such as war, recessions, changes in interest rates etc. In principle, it is hard to eliminate all risk. 
+In finance, we have **unsystematic** and **systematic** risk. Unsystematic risk involves risk from the fluctuations in price of a held asset (asset prices _will_ oscillate due to changes in supply and demand).  Systematic risk involves risk from external factors such as war, recessions, changes in interest rates etc. In principle, it is hard to eliminate all risk. 
 
 For example, we can diversify away unsystematic risk using portfolio optimization. This is the basic concept behind _Markowitz portfolio theory_: https://en.wikipedia.org/wiki/Modern_portfolio_theory. A rudimentary example for a 3 stock portfolio would be to optimize the percentage of the porfolio allocated to each stock such that we maximize our return for a given risk (measured using the volatility of the porfolio). This works best (generates the biggest return) when the stocks are _uncorrelated_ in such a way that a loss in one can be made up for by the gain in another. In this manner, one combines multiple risky assets into one portfolio to actualaly lower the risk of the whole portfolio.
 
