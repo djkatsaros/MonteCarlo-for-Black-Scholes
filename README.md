@@ -44,13 +44,23 @@ Monte Carlo simulation essentially computes a ton of instances of some random va
 The above image was generated using **TODO**.py. One knows that a stock price follows a lognormal distribution with $dS = \mu S dt + \sigma S dX$. This has solution $S(t) = S(0) e^{ (\mu - \frac{1}{2} \sigma^2)t + \sigma W_t}$, for $W$ a Wiener process with increments $W(t+dt) - W(t) \sim \mathcal{N}(0,dt)$ such that we can roughly assume $W_t \sim \mathcal{N}(0,dt)$ as well.
 
 Generally, the algorithm goes like
-1. Generate a number of samples from the formula for $S(t)$, which involves sampling from the random variable $W_t \sim \mathcal{N}(0,dt)$. This creates a time series for $(S(t)$
+1. Generate a number of samples from the formula for $S(t)$, which involves sampling from the random variable $W_t \sim \mathcal{N}(0,dt)$. This creates a time series for $(S(t)$. The formula for $S(t)$, which is a _geometric random walk_, provides the constraint for the MC sampling. 
 
-2. Append the time series to a dataframe of time series'.
+2. Append the time series to a dataframe.
 
-3. Compute the mean column-wise for the time series' to get the trajectory with the highest probability.
+3. Compute the mean column-wise for the time series to get the trajectory with the highest probability.
 
-We then plotted all the series as well as the mean of these.
+We then plotted all the series as well as their mean.
 
+---------------------------------------------------------------------------------------------------------------------------
 ## Application to Black-Scholes Model
+
+The OptionPricing script contains an implementation of the Monte Carlo sampling technique. It also contains methods for directly computing the price using the Black-Scholes equation. If one tries both, then with a large enough number of iterations the Monte Carlo sampling gives the same value as the exact answer to high error. 
+
+This gives the price of put and call options of given strike price, expiry, initial underlying asset value etc. One could easily generalize this to a weighted combination of stocks in a portfolio. 
+
+---------------------------------------------------------------------------------------------------------------------------
+## Repo Structure
+
+This readme and the two scripts mentioned and described above.
 
