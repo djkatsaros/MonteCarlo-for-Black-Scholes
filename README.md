@@ -28,7 +28,7 @@ linear PDE, and has solution $S(0) N(d_1) - E e^{-r(T-t)} N(d_2)$ where $N(x) = 
 
 In practice, the $\Delta$ parameter for a portfolio will be a sum of $w_i \cdot \Delta_i$'s where $\Delta_i = \frac{\partial V}{S_i}$ is the delta for a given stock in the portfolio, and $w_i$ is the proportion of that
 option in the portfolio. One also talks about $\Gamma = \frac{\partial^2 V}{\partial S^2}$, which is the sensitivity of $\Delta$, being the rate of change of $\Delta$ (or some $\Delta_i$). This measures how often the position must be rehedged to maintain a delta-neutral position [meaning the portfolio value remains unchanged under small changes in the underlying asset(s)]. Writing also $\Theta = \frac{\partial V}{\partial t}$ for the rate of change of the option price with time, and 
-$\mathscr{V} = \frac{\partial V}{\partial \sigma}$ for the change/volatility, we have the shorthand form for the Black-Scholes model:
+$\mathcal{V} = \frac{\partial V}{\partial \sigma}$ for the change/volatility, we have the shorthand form for the Black-Scholes model:
 $\Theta + \frac{1}{2} \sigma^2 S^2 \Gamma + r S \Delta  - r \mathscr{V} =0$. 
 
 ---------------------------------------------------------------------------------------------------------------------------
