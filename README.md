@@ -19,8 +19,8 @@ that a **standard assumption in quant finance is that the underlying asset $S$ f
 respectively. For the whole portfolio, differentiate using Ito's Lemma (which is essentially a Taylor expansion) to obtain (after dropping higher order terms) $d\pi = dV(S,T) - \Delta dS  = \frac{\partial V}{\partial t} dt + \frac{\partial V}{\partial S} dS
 +\frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} dt - \Delta dS$, which we collect as
 $d\pi = ( \frac{\partial V}{\partial t}  + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} ) dt + ( \frac{\partial V}{\partial S}  - \Delta) dS = [Deterministic~ part] + [Stochastic ~part ]$.
-If we choose $\Delta = \frac{\partial V}{\partial S}$, we effectively reduce risk to $0$ since then the portfolio is totally deterministic! This delta changes with time, so this _"Delta Hedging"_ is an example of
-so called _Dynamic Hedging_. Choosing $\Delta$ in this manner leaves us to solve
+If we choose $\Delta = \frac{\partial V}{\partial S}$, we effectively reduce risk to $0$ since then the portfolio is totally deterministic! This delta changes with time, which we are assuming is continuous, so this _"Delta Hedging"_ is an example of
+so called _Dynamic Hedging_. For simplicity, we are also assuming a fixed rate $r$ and that there are no transaction costs. Choosing $\Delta$ in this manner leaves us to solve
 $d\pi = ( \frac{\partial V}{\partial t}  + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} ) dt$. However, the _no arbitrage principle_ says that the risk free change $d\pi$ must be the same as the growth we would get if we lend the same amount of money to the bank at the risk free interest rate $r$. This means $d\pi = r\pi dt$ as well, so plugging in for $\pi$ and $\Delta we now have
 $d\pi = ( \frac{\partial V}{\partial t}  + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} ) dt = r(V-S\frac{\partial V}{\partial S} ) dt$, or
 $\frac{\partial V}{\partial t}  + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - rV =0$, which is the **Black Scholes Equation** in all it's glory. It is a parabolic 
@@ -29,7 +29,7 @@ linear PDE, and has solution $S(0) N(d_1) - E e^{-r(T-t)} N(d_2)$ where $N(x) = 
 In practice, the $\Delta$ parameter for a portfolio will be a sum of $w_i \cdot \Delta_i$'s where $\Delta_i = \frac{\partial V}{S_i}$ is the delta for a given stock in the portfolio, and $w_i$ is the proportion of that
 option in the portfolio. One also talks about $\Gamma = \frac{\partial^2 V}{\partial S^2}$, which is the sensitivity of $\Delta$, being the rate of change of $\Delta$ (or some $\Delta_i$). This measures how often the position must be rehedged to maintain a delta-neutral position [meaning the portfolio value remains unchanged under small changes in the underlying asset(s)]. Writing also $\Theta = \frac{\partial V}{\partial t}$ for the rate of change of the option price with time, and 
 $\mathcal{V} = \frac{\partial V}{\partial \sigma}$ for the change/volatility, we have the shorthand form for the Black-Scholes model:
-$\Theta + \frac{1}{2} \sigma^2 S^2 \Gamma + r S \Delta  - r \mathscr{V} =0$. 
+$\Theta + \frac{1}{2} \sigma^2 S^2 \Gamma + r S \Delta  - r \mathcal{V} =0$. 
 
 ---------------------------------------------------------------------------------------------------------------------------
 ## Monte Carlo Simulation Example: Predicting Stock Evolutions 
